@@ -1,5 +1,11 @@
-const Products = ({ name, imagePath }) => {
+const Products = ({ name, imagePath, updateItemCount }) => {
   console.log('products : ', name, imagePath);
+
+  const handleChange = (e) => {
+    const currentValue = e.target.value;
+    updateItemCount(name, currentValue);
+  };
+
   return (
     <div style={{ textAlign: 'center' }}>
       <img
@@ -17,6 +23,7 @@ const Products = ({ name, imagePath }) => {
           min="0"
           defaultValue={0}
           style={{ marginLeft: '70x' }}
+          onChange={handleChange}
         />
       </form>
     </div>
